@@ -39,6 +39,16 @@
             <artifactId>jersey-media-moxy</artifactId>
             <version>2.7</version>
         </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson1</artifactId>
+            <version>2.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.8</version>
+        </dependency>
     </dependencies>
 
     <build>
