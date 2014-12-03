@@ -5,7 +5,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
-@Path("/user-form-param")
+@Path("user-form-param")
 public class UserServiceFormParam {
 
     @POST

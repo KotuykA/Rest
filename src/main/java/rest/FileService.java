@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response.ResponseBuilder;
 import java.io.File;
 
 
-@Path("/file")
+@Path("file")
 public class FileService {
 
     ClassLoader classLoader = getClass().getClassLoader();

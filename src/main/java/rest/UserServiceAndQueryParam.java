@@ -9,7 +9,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
-@Path("/users/queryparam")
+@Path("users/queryparam")
 public class UserServiceAndQueryParam {
     @GET
     @Path("/query")

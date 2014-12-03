@@ -5,7 +5,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-@Path("/users/re")
+@Path("users/re")
 public class UserRestServiceAndRE {
 
     @GET

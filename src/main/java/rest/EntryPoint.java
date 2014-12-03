@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-@Path("/entry-point")
+@Path("entry-point")
 public class EntryPoint {
 
     @GET
