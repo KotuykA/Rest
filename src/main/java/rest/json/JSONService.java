@@ -23,10 +23,10 @@ public class JSONService {
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response createTrackInJSON(Track track) {
 
-        String result = "Track saved : " + track;
-        return Response.status(201).entity(result).build();
+        return Response.status(201).entity(track).build();
 
     }
 
