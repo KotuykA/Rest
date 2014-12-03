@@ -11,14 +11,14 @@ import java.io.File;
 @Path("/file")
 public class FileService {
 
-    public static final String FILE_PATH = "D:\\Java\\Web Services\\jetty-ws\\src\\main\\resources\\web.txt";
+    ClassLoader classLoader = getClass().getClassLoader();
 
     @GET
     @Path("/get-file")
     @Produces("text/plain")
     public Response getFile() {
 
-        File file = new File(FILE_PATH);
+        File file = new File(classLoader.getResource("web.txt").getFile());
 
         ResponseBuilder builder = Response.ok(file);
 
