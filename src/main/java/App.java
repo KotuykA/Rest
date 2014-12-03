@@ -5,7 +5,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 public class App {
     public static void main(String[] args) throws Exception {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/");
+        context.setContextPath("/rest");
 
         Server jettyServer = new Server(8080);
         jettyServer.setHandler(context);

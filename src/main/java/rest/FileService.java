@@ -14,19 +14,16 @@ public class FileService {
     public static final String FILE_PATH = "D:\\Java\\Web Services\\jetty-ws\\src\\main\\resources\\web.txt";
 
     @GET
-    @Path("/get")
+    @Path("/get-file")
     @Produces("text/plain")
     public Response getFile() {
 
         File file = new File(FILE_PATH);
-
 
         ResponseBuilder builder = Response.ok(file);
 
         builder.header("Content-Disposition", "attachmnet; filename=\"file_from_server.log\"");
 
         return builder.build();
-
-
     }
 }
