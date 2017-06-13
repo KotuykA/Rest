@@ -6,7 +6,11 @@ import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import rest.jaxb.Customer;
+import rest.jaxb.CustomerRequest;
+import rest.jaxb.CustomerResponse;
 import rest.json.Track;
+import rest.json.TrackRequest;
 
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
@@ -107,6 +111,10 @@ public class PositiveFlow {
 
         String input = "{\"group\":\"Linkin Park\",\"title\":\"Numb\"}";
 
+        //        Track trackNew = new Track();
+//        trackNew.setTitle("Numb");
+//        trackNew.setGroup("Linkin Park");
+
         WebTarget queryURL = target.path("json/post");
 
         Track track = queryURL.request(MediaType.APPLICATION_JSON).post(Entity.entity(input, MediaType.APPLICATION_JSON), Track.class);
@@ -114,6 +122,40 @@ public class PositiveFlow {
         assertTrue(track.getTitle().equals("Numb"));
 
         assertTrue(track.getGroup().equals("Linkin Park"));
+    }
+
+    @Test
+    public void testJSONPostTEST() throws IOException {
+
+        TrackRequest trackRequest = new TrackRequest();
+        trackRequest.setID(54);
+
+        WebTarget queryURL = target.path("json/post/track12");
+
+        Track track = queryURL.request(MediaType.APPLICATION_JSON).post(Entity.entity(trackRequest, MediaType.APPLICATION_JSON), Track.class);
+
+        assertTrue(track.getTitle().equals("Ocean"));
+
+        assertTrue(track.getGroup().equals("Steel"));
+    }
+
+    @Test
+    public void testXMlGet() throws IOException {
+        int id = 1;
+        WebTarget queryURL = target.path("xml/customer/" + id);
+        Customer customer = queryURL.request(MediaType.APPLICATION_XML).get(Customer.class);
+        assertTrue(customer.getName().equals("Sergii Oliinyk"));
+    }
+
+    @Test
+    public void testXMlPost() throws IOException {
+
+        CustomerRequest customerRequest = new CustomerRequest();
+        customerRequest.setID(2);
+
+        WebTarget queryURL = target.path("xml/customer/customerRequest");
+        CustomerResponse customerResponse = queryURL.request(MediaType.APPLICATION_XML).post(Entity.entity(customerRequest, MediaType.APPLICATION_XML), CustomerResponse.class);
+        assertTrue(customerResponse.getName().equals("Anton"));
     }
 }
 
